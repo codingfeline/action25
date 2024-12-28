@@ -21,6 +21,14 @@ model Home {
   updatedAt DateTime @updatedAt
 }
 
+model Contact {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String?
+  email   String
+  message String
+  date    DateTime @default(now())
+}
+
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   userId            String  @db.ObjectId
