@@ -14,10 +14,11 @@ datasource db {
 }
 
 model Home {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  section String
-  content String
-  date    DateTime @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  section   String?
+  content   String
+  date      DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Account {
