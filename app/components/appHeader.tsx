@@ -39,22 +39,24 @@ const AppHeader = () => {
                 {link.label}
               </Link>
             ))}
-            {status === 'authenticated' && session?.user?.email === 'post@nazs.net' && (
+            {status === 'authenticated' && session.user!.email! === 'post@nazs.net' && (
               <Link href="/Enquiries" className={colourLink('/Enquiries')}>
                 Enquiries
               </Link>
             )}
           </Flex>
           <Flex justify="between" gapX="3">
-            {status === 'unauthenticated' ? (
+            {status === 'unauthenticated' && (
               <Link className="" href="/api/auth/signin">
                 SignIn
               </Link>
-            ) : (
+            )}
+
+            {status === 'authenticated' && (
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
                   <Avatar
-                    src={session!.user!.image!}
+                    src={session.user!.image!}
                     fallback="?"
                     size="2"
                     radius="full"
@@ -64,11 +66,11 @@ const AppHeader = () => {
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content>
                   <DropdownMenu.Label>
-                    <Text size="2">{session!.user!.email}</Text>
+                    <Text size="2">{session.user!.email!}</Text>
                     {/* <p>fdff</p> */}
                   </DropdownMenu.Label>
                   <DropdownMenu.Item>
-                    <Link href="/api/auth/signout">SignOut [{session?.user?.name}]</Link>
+                    <Link href="/api/auth/signout">Sign Out</Link>
                   </DropdownMenu.Item>
                 </DropdownMenu.Content>
               </DropdownMenu.Root>
@@ -76,7 +78,7 @@ const AppHeader = () => {
             {/* {status === 'authenticated' && (
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
-                  <Avatar src={session!.user!.image!} fallback="?" />
+                  <Avatar src={session.user!.image!} fallback="?" />
                 </DropdownMenu.Trigger>
               </DropdownMenu.Root>
             )} */}
