@@ -1,15 +1,21 @@
+import { Container, Theme } from '@radix-ui/themes'
+import '@radix-ui/themes/styles.css'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
+import AuthProvider from './auth/Provider'
+import AppFooter from './components/appFooter'
+import AppHeader from './components/appHeader'
 import './globals.css'
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
-  subsets: ['latin'],
+  weight: '100 900',
 })
-
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: '100 900',
 })
 
 export const metadata: Metadata = {
@@ -24,8 +30,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+      <link rel="icon" href="/A.png" sizes="any" />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col  `}
+      >
+        <AuthProvider>
+          <Theme accentColor="blue" className="mb-auto flex flex-col  ">
+            <AppHeader />
+            <main className="grow p-8 ">
+              <Container>{children}</Container>
+            </main>
+            <AppFooter />
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   )

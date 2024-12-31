@@ -1,35 +1,38 @@
-export default function Home() {
+import prisma from '@/prisma/client'
+import logo from '@/public/Action-logo.svg'
+import { Card, Flex } from '@radix-ui/themes'
+import Image from 'next/image'
+import ReactMarkDown from 'react-markdown'
+import { Pencil } from './components'
+import ButtonWithComponent from './components/ButtonLink'
+
+export default async function Home() {
+  const homeContent = await prisma.home.findMany()
+  console.log(homeContent)
   return (
-    <div>
-      <p>
-        At Action Consultancy Service, we specialize in delivering top-tier computer
-        support and consultancy solutions tailored to meet the dynamic needs of modern
-        businesses. From troubleshooting technical issues to designing robust IT
-        infrastructures, our mission is to empower organizations with the tools and
-        expertise necessary to thrive in an increasingly digital world. Whether you need
-        day-to-day IT support, strategic guidance on technology implementation, or
-        assistance with digital transformation, we’re here to ensure your systems run
-        smoothly and efficiently.
-      </p>
-
-      <p>
-        Our team of seasoned IT professionals brings deep industry knowledge and a
-        proactive approach to solving complex challenges. We offer a comprehensive range
-        of services, including network management, cybersecurity, cloud integration, and
-        IT strategy consulting, all designed to enhance your operational capabilities. At
-        Action Consultancy Service, we believe that technology should be an enabler, not a
-        barrier, and our solutions are crafted to align perfectly with your business
-        goals, no matter the size or scope of your organization.
-      </p>
-
-      <p>
-        Choosing Action Consultancy Service means gaining a trusted partner committed to
-        your success. We pride ourselves on delivering personalized support, quick
-        response times, and innovative solutions that drive results. As technology
-        continues to evolve, we’ll be by your side, ensuring your IT environment stays
-        ahead of the curve. Let’s work together to harness the power of technology and
-        create a secure, efficient, and future-ready foundation for your business.
-      </p>
-    </div>
+    <Flex direction="column" className=" gap-3 ">
+      <h1 className="flex text-3xl justify-center">
+        Welcome to
+        {/* <span className="text-3xl ml-2">AcTion Consultancy Service</span> */}
+      </h1>
+      <Image src={logo} alt="logo" className="place-self-center" />
+      {/* <p className="tracking-wider">
+        where we specialize in delivering top-tier computer support and consultancy
+        solutions tailored to meet the dynamic needs of modern businesses. From
+        troubleshooting technical issues to designing robust IT infrastructures, our
+        mission is to empower organizations with the tools and expertise necessary to
+        thrive in an increasingly digital world. Whether you need day-to-day IT support,
+        strategic guidance on technology implementation, or assistance with digital
+        transformation, we’re here to ensure your systems run smoothly and efficiently.
+      </p> */}
+      {/* <p>{homeContent[0].content.toString()}</p> */}
+      <Card className="prose tracking-wider home  ">
+        <ReactMarkDown>{homeContent[0].content.toString()}</ReactMarkDown>
+      </Card>
+      <ButtonWithComponent href="/About-Us">More about us</ButtonWithComponent>
+      <ButtonWithComponent Icon={Pencil} href={`/content/${homeContent[0].id}/edit`}>
+        Edit
+      </ButtonWithComponent>
+    </Flex>
   )
 }

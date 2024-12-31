@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  [type='text'],
+  [type='submit'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  button,
+  textarea,
+  select {
+    @apply w-full border-[#e5cc96] rounded-lg shadow-sm focus:border-[#E19D0B] focus:ring-gray-400 bg-slate-200 mt-1 p-2 border focus:outline-none;
+  }
+  [type='checkbox'],
+  [type='radio'] {
+    @apply rounded border-gray-300 text-indigo-500 focus:ring-indigo-500 mr-2;
+  }
+  [type='submit'] {
+    @apply cursor-pointer hover:bg-slate-300;
+  }
+  [type='text'] {
+    @apply border border-[#e5cc96];
+  }
+}
+form {
+  @apply mt-2;
+}
+form div {
+  @apply mb-3;
+}
+label span {
+  @apply text-red-400 float-right pr-2 italic;
+}
+h6 {
+  @apply text-lg;
+}
+h5 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-4xl;
+}
+h1 {
+  @apply text-5xl;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply my-4;
+}
+hr {
+  @apply text-black;
+}
+.nav-li {
+  @apply bg-[#e1c892] w-full block;
+}
+.nav-a {
+  @apply p-4 px-2 block  text-center;
+}
+
+/* ################  */
+.pageBg {
+  @apply bg-no-repeat bg-fixed bg-cover;
+}
+.menusBox {
+  @apply my-4;
+}
+.menusBox h3 {
+  @apply bg-[#eadab7] tracking-widest p-1 mt-8 -mb-1 text-[#b9830c] font-semibold;
+}
+.menus {
+  @apply w-full  my-1 mb-3;
+}
+.menus tr {
+  @apply even:bg-[#f6efe2] odd:bg-[#f7f6f5];
+}
+.menus .row_number {
+  @apply text-gray-400 w-12 font-mono pl-4;
+}
+.menus td {
+  @apply p-2 align-top;
+}
+.menus th {
+  @apply text-left p-2 bg-[#dbcbaa] text-[#966909];
+}
+.menus .price {
+  @apply text-right font-mono w-[100px] pr-5;
+}
+.menus .price2 {
+  @apply text-right font-mono;
+}
+.menus span {
+  @apply text-red-600;
+}
+.menus span.setMenu {
+  @apply block text-black uppercase font-bold w-24;
+}
+.menus strong {
+  @apply block text-slate-600;
+}
+.menus .winePrices {
+  @apply text-black flex md:justify-between pt-2;
+}
+.menus .winePrices i {
+  @apply not-italic font-mono mr-4;
+}
+
+.menus .item {
+  @apply w-1/4;
+}
+.commonImages img {
+  @apply rounded-full w-28 sm:w-36 md:w-40 lg:w-52 transition;
+}
+address {
+  @apply text-red-700;
+}
+.val-a {
+  @apply w-9  inline-block   bg-green-500 m-1  text-center rounded-lg;
+}
+.val-b {
+  @apply w-9 text-center  bg-slate-400 mx-1 inline-block  cursor-pointer select-none rounded-md;
+}
+.choices {
+  @apply flex flex-wrap gap-1;
+}
+
+.bg_main {
+  background: url('/A.svg');
+  @apply bg-center bg-auto bg-no-repeat bg-fixed;
+}
+.flex_screen {
+  @apply flex flex-col mb-auto;
+}
+.flex_center {
+  @apply flex justify-center items-center grow;
+}
+td svg {
+  @apply text-red-500 float-start;
+}
