@@ -4,7 +4,7 @@ import ErrorMessage from '@/app/components/ErrorMessage'
 import Spinner from '@/app/components/Spinner'
 import { ContactSchema } from '@/app/validationSchemas'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Callout, Heading, TextField } from '@radix-ui/themes'
+import { Button, Callout, Heading, TextArea, TextField } from '@radix-ui/themes'
 import axios from 'axios'
 import 'easymde/dist/easymde.min.css'
 import { useState } from 'react'
@@ -79,7 +79,7 @@ const ContentForm = () => {
           control={control}
           render={({ field }) => <SimpleMDE placeholder="Message" {...field} />}
           /> */}
-        <TextField.Root placeholder="Message" {...register('message')} />
+        <TextArea placeholder="Message" {...register('message')} />
         <ErrorMessage>{errors.message?.message}</ErrorMessage>
 
         <Button disabled={submitting} onClick={onSubmit}>
