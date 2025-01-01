@@ -21,7 +21,6 @@ const ContentForm = () => {
 
   const {
     register,
-    control,
     handleSubmit,
     reset,
     formState: { errors },
