@@ -8,9 +8,8 @@ import { Button, Callout, Heading, TextField } from '@radix-ui/themes'
 import axios from 'axios'
 import 'easymde/dist/easymde.min.css'
 import { useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import toast, { Toaster } from 'react-hot-toast'
-import SimpleMDE from 'react-simplemde-editor'
 import { z } from 'zod'
 
 type ContactFormData = z.infer<typeof ContactSchema>
@@ -76,11 +75,12 @@ const ContentForm = () => {
         <TextField.Root placeholder="Email" {...register('email')} />
         <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-        <Controller
+        {/* <Controller
           name="message"
           control={control}
           render={({ field }) => <SimpleMDE placeholder="Message" {...field} />}
-        />
+          /> */}
+        <TextField.Root placeholder="Message" {...register('message')} />
         <ErrorMessage>{errors.message?.message}</ErrorMessage>
 
         <Button disabled={submitting} onClick={onSubmit}>
