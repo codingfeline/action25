@@ -36,3 +36,7 @@ code {
 .rt-Card:where(.home) {
   --card-border-width: 0px;
 }
+.rt-Card:where(.rt-variant-surface) {
+  --card-border-width: 0px;
+  --card-background-color: var(--color-panel);
+}
