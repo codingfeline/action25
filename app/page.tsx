@@ -1,13 +1,17 @@
 import prisma from '@/prisma/client'
 import logo from '@/public/Action-logo.svg'
 import { Card, Flex } from '@radix-ui/themes'
+import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import ReactMarkDown from 'react-markdown'
+import { authOptions } from './api/auth/[...nextauth]/authOptions'
 import { Pencil } from './components'
 import ButtonWithComponent from './components/ButtonLink'
 
 export default async function Home() {
   const homeContent = await prisma.home.findMany()
+  const session = await getServerSession(authOptions)
+
   console.log(homeContent)
   return (
     <Flex direction="column" className=" gap-3 ">
@@ -30,9 +34,11 @@ export default async function Home() {
         <ReactMarkDown>{homeContent[0].content.toString()}</ReactMarkDown>
       </Card>
       <ButtonWithComponent href="/About-Us">More about us</ButtonWithComponent>
-      <ButtonWithComponent Icon={Pencil} href={`/content/${homeContent[0].id}/edit`}>
-        Edit
-      </ButtonWithComponent>
+      {session && (
+        <ButtonWithComponent Icon={Pencil} href={`/content/${homeContent[0].id}/edit`}>
+          Edit
+        </ButtonWithComponent>
+      )}
     </Flex>
   )
 }
