@@ -41,6 +41,6 @@ code {
   --card-background-color: var(--color-panel);
 }
 
-.rt-reset:where(button) {
+button {
   @apply cursor-pointer;
 }
