@@ -40,3 +40,7 @@ code {
   --card-border-width: 0px !important;
   --card-background-color: var(--color-panel);
 }
+
+.rt-reset:where(button) {
+  cursor: var(--cursor-pointer);
+}
