@@ -8,7 +8,7 @@ const MoreInfo = () => {
   const maxChars = 150
 
   const para =
-    'Choosing Action Consultancy Service means gaining a trusted partner committed to your success. We pride ourselves on delivering personalized support, quick response times, and innovative solutions that drive results. As technology   continues to evolve, we’ll be by your side, ensuring your IT environment stays ahead of the curve. Let’s work together to harness the power of technology and       create a secure, efficient, and future-ready foundation for your business.'
+    "Choosing Action Consultancy Service means gaining a trusted partner committed to your success. We pride ourselves on delivering personalized support, quick response times, and innovative solutions that drive results. As technology continues to evolve, we'll be by your side, ensuring your IT environment stays ahead of the curve. Let's work together to harness the power of technology and create a secure, efficient, and future-ready foundation for your business."
 
   return (
     <div>

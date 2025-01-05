@@ -74,6 +74,9 @@ const ContentForm = () => {
         <TextField.Root placeholder="Email" {...register('email')} />
         <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
+        <TextField.Root placeholder="Phone" {...register('phone')} type="number" />
+        <ErrorMessage>{errors.phone?.message}</ErrorMessage>
+
         {/* <Controller
           name="message"
           control={control}
