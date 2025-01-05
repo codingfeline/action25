@@ -12,6 +12,7 @@ const ExplenseFilter = ({ onSelectCategory }: Props) => {
       <Select.Content>
         <Select.Group>
           <Select.Label>Categories</Select.Label>
+          <Select.Item value="All Categories">All Categories</Select.Item>
           {categories.map(c => (
             <Select.Item key={c} value={c}>
               {c}

@@ -10,7 +10,11 @@ import { categories } from '../categories'
 
 type ExpenseForm = z.infer<typeof Expense>
 
-const ExpenseTracker = () => {
+interface Props {
+  onSubmit: (newExpense: ExpenseForm) => void
+}
+
+const ExpenseTrackerForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -21,7 +25,7 @@ const ExpenseTracker = () => {
     resolver: zodResolver(Expense),
   })
 
-  const onSubmit = handleSubmit(() => {})
+  // const onSubmit = handleSubmit({onsu})
 
   return (
     <div>
@@ -58,7 +62,7 @@ const ExpenseTracker = () => {
           }}
         ></Controller>
         <ErrorMessage>{errors.category?.message}</ErrorMessage>
-        <Button onClick={onSubmit} className="block">
+        <Button onClick={handleSubmit(onSubmit)} className="block">
           <a href="#">Submit</a>
         </Button>
       </form>
@@ -66,4 +70,4 @@ const ExpenseTracker = () => {
   )
 }
 
-export default ExpenseTracker
+export default ExpenseTrackerForm
