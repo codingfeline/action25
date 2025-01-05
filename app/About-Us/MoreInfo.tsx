@@ -13,7 +13,7 @@ const MoreInfo = () => {
   return (
     <div>
       <Flex direction="column" gap="3" my="3">
-        {show ? para : para.substring(0, maxChars)}
+        {show ? para : para.substring(0, maxChars) + '...'}
       </Flex>
       <Button onClick={() => setShow(!show)}>Show {show ? 'less' : 'more...'}</Button>
     </div>
