@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { categories } from './components/categories';
 
 export const ContentSchema = z.object({
   // section: z.string(),
@@ -11,3 +12,10 @@ export const ContactSchema = z.object({
   message: z.string().min(3, 'Message is required').max(300),
   phone: z.string().min(11, 'Phone is required')
 })
+
+export const Expense = z.object({
+  description: z.string().min(5, 'Description is required'),
+  amount: z.number({ invalid_type_error: 'Amount is required 2' }).min(0.01),
+  category: z.enum(categories, { errorMap: () => ({ message: 'Category is required' }) })
+})
+// category: z.string().min(5, 'Category required')
