@@ -5,21 +5,9 @@ interface Props {
   onSelectCategory: (category: string) => void
 }
 
-// type ExpenseFilterForm = z.infer<typeof Expense>
-
 const ExplenseFilter = ({ onSelectCategory }: Props) => {
-  const handleValueChange = (value: string) => {
-    // console.log('Selected value:', value) // Log or use the selected value
-    onSelectCategory(value)
-  }
-  // const { control } = useForm<ExpenseFilterForm>({ resolver: zodResolver(Expense) })
   return (
-    // <Controller
-    //   control={control}
-    //   name="category"
-    //   render={({ field }) => {
-    //     return (
-    <Select.Root onValueChange={handleValueChange}>
+    <Select.Root onValueChange={value => onSelectCategory(value)}>
       <Select.Trigger placeholder="Category" />
       <Select.Content>
         <Select.Group>
@@ -32,9 +20,6 @@ const ExplenseFilter = ({ onSelectCategory }: Props) => {
         </Select.Group>
       </Select.Content>
     </Select.Root>
-    //     )
-    //   }}
-    // ></Controller>
   )
 }
 
