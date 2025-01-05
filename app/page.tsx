@@ -7,6 +7,7 @@ import ReactMarkDown from 'react-markdown'
 import { authOptions } from './api/auth/[...nextauth]/authOptions'
 import { Pencil } from './components'
 import ButtonWithComponent from './components/ButtonLink'
+import CookiesAgreement from './components/CookiesAgreement'
 
 export default async function Home() {
   const homeContent = await prisma.home.findMany()
@@ -39,6 +40,7 @@ export default async function Home() {
           Edit
         </ButtonWithComponent>
       )}
+      <CookiesAgreement />
       {/* <AlertParent /> */}
     </Flex>
   )
