@@ -11,7 +11,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast, { Toaster } from 'react-hot-toast'
 import { z } from 'zod'
-import ExpenseTracker from '../components/ExpenseTracker/Expenses'
 
 type ContactFormData = z.infer<typeof ContactSchema>
 
@@ -91,7 +90,7 @@ const ContentForm = () => {
         </Button>
       </form>
 
-      <ExpenseTracker />
+      {/* <ExpenseTracker /> */}
     </div>
   )
 }
