@@ -91,12 +91,11 @@ const TermsAndConditions = () => {
       <ul>
         <li>
           7.1 These terms and conditions are governed by and construed in accordance with
-          the laws of [Your Jurisdiction], without regard to its conflict of law
-          principles.
+          the laws of the UK, without regard to its conflict of law principles.
         </li>
         <li>
           7.2 Any disputes arising out of or relating to these terms shall be subject to
-          the exclusive jurisdiction of the courts in [Your Jurisdiction].
+          the exclusive jurisdiction of the courts in The UK.
         </li>
       </ul>
       <h2>8. Changes to Terms and Conditions</h2>
@@ -119,10 +118,10 @@ const TermsAndConditions = () => {
         <br />
         Email:{' '}
         <a href="mailto:support@actionconsultancyservice.com">
-          support@actionconsultancy.com
+          support@****consultancy.com
         </a>
         <br />
-        Phone: [Your Contact Number]
+        Phone: 07*** *** ***
         <br />
       </address>
       <p>
