@@ -5,8 +5,8 @@ const Cookies = () => {
         <strong>Cookies Policy</strong>
       </p>
       <p>
-        This Cookies Policy explains how [Your Company Name] ("we," "us," or "our") uses
-        cookies and similar technologies on our website [website URL] ("Website").
+        This Cookies Policy explains how [Your Company Name] (`we,` `us,` or `our`) uses
+        cookies and similar technologies on our website [website URL] (`Website`).
       </p>
       <hr />
       <h3 id="what-are-cookies">What Are Cookies?</h3>
