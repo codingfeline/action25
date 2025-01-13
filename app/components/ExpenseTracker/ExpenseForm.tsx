@@ -18,7 +18,6 @@ const ExpenseTrackerForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
-    reset,
     control,
     formState: { errors },
   } = useForm<ExpenseForm>({
